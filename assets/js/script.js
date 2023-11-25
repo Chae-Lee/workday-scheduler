@@ -2,10 +2,9 @@
 - create a simple calendar application that allows a user to save events for each hour 
 
 1) display the current day at the top of the calendar when a user opens the planner 
-  - access third party library to pull the current time 
-
 2) present timeblocks for standard business hours when the user scrolls down 
   - write static html for each hours 'timeblocks'
+  - OR create JS code with for loop so that a timeblock is created from 9 - 6pm 
 3) color-code each timeblock based on past, present, and future when the timeclock is viewed
   - past (gray)
   - present (red)
@@ -33,4 +32,7 @@ console.log (currentDateTime);
 currentDayEl.textContent = currentDateTime;
 
 // Create Time blocks for standard business hours
+
+var timeblockEl = document.getElementsByClassName ('container');
+
 
