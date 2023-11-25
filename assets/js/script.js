@@ -22,3 +22,15 @@
 6) event persists between refreshes of a page 
 
 */
+
+// Display today's date 
+
+var currentDayEl = document.getElementById ('currentDay');
+
+currentDateTime = new Date();
+console.log(currentDayEl);
+console.log (currentDateTime);
+currentDayEl.textContent = currentDateTime;
+
+// Create Time blocks for standard business hours
+
