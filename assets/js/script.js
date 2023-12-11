@@ -3,7 +3,7 @@
 
 1) display the current day at the top of the calendar when a user opens the planner 
 2) present timeblocks for standard business hours when the user scrolls down 
-  - write static html for each hours 'timeblocks'
+  - write static html for each hours 'timeblocks' and create grids for each sections
   - OR create JS code with for loop so that a timeblock is created from 9 - 6pm 
 3) color-code each timeblock based on past, present, and future when the timeclock is viewed
   - past (gray)
@@ -23,16 +23,48 @@
 */
 
 // Display today's date 
-
 var currentDayEl = document.getElementById ('currentDay');
-
-currentDateTime = new Date();
+var currentDateTime = new Date();
 console.log(currentDayEl);
 console.log (currentDateTime);
 currentDayEl.textContent = currentDateTime;
 
-// Create Time blocks for standard business hours
+// Function for current, past and future times to change color
+var timeblockEl = document.getElementById ('timeblock');
+var currentHour = dayjs().hour();
+console.log (currentHour);
+var timeblockHour;  //something to indicate the selected timeblock 
 
-var timeblockEl = document.getElementsByClassName ('container');
+var timeChange = document.getElementsByClassName ('column-2');
+var containerEl = document.getElementById ('container');
+// var pastEl = ;
+// var presentEl =;
+// var futureEl =;
+var timeblocks = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+
+//Creating schedule timetable with a for loop 
+for (var i=0; i< timeblocks.length; i++){
+  var columns = document.createElement ('div');
+  columns.textContent = timeblocks[i] + ":00";
+  containerEl.appendChild(columns);
+}
+
+function changeColor (){
+  if (currentHour<timeblockHour){
+    timeblockEl.classList.add ('future') //future hours
+  } else if (currentHour === timeblockHour) {    
+    timeblockEl.classList.add ('present'); //current hour
+  } else {
+    timeblockEl.classList.add ('past'); //past hour 
+  }
+}
 
 
+// Function for saving content when saveBtn is clicked 
+var clickBtnEl = document.getElementsByClassName ('savebtn');
+
+clickBtnEl.addEventListener ('click', clickBtn);
+
+function clickBtn(){
+  
+}
