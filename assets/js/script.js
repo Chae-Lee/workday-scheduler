@@ -21,34 +21,33 @@
 6) event persists between refreshes of a page 
 
 */
-
-// Display today's date 
+//Variables
+var timeblockEl = document.getElementById ('timeblock');
+var currentHour = dayjs().hour();
+var timeblockHour;  //something to indicate the selected timeblock 
+var timeChange = document.getElementsByClassName ('column-2');
+var containerEl = document.getElementById ('container');
+var timeblocks = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 var currentDayEl = document.getElementById ('currentDay');
 var currentDateTime = new Date();
+// var pastEl = ;
+// var presentEl =;
+// var futureEl =;
+
+// Display today's date 
 console.log(currentDayEl);
 console.log (currentDateTime);
 currentDayEl.textContent = currentDateTime;
 
-// Function for current, past and future times to change color
-var timeblockEl = document.getElementById ('timeblock');
-var currentHour = dayjs().hour();
-console.log (currentHour);
-var timeblockHour;  //something to indicate the selected timeblock 
-
-var timeChange = document.getElementsByClassName ('column-2');
-var containerEl = document.getElementById ('container');
-// var pastEl = ;
-// var presentEl =;
-// var futureEl =;
-var timeblocks = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
-
 //Creating schedule timetable with a for loop 
-for (var i=0; i< timeblocks.length; i++){
-  var columns = document.createElement ('div');
-  columns.textContent = timeblocks[i] + ":00";
-  containerEl.appendChild(columns);
-}
+// for (var i=0; i< timeblocks.length; i++){
+//   var columns = document.createElement ('div');
+//   columns.textContent = timeblocks[i] + ":00";
+//   containerEl.appendChild(columns);
+// }
 
+
+// Function for current, past and future times to change color
 function changeColor (){
   if (currentHour<timeblockHour){
     timeblockEl.classList.add ('future') //future hours
