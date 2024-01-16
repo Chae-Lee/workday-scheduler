@@ -29,6 +29,10 @@ var timeChange = document.getElementsByClassName("column-2");
 var containerEl = document.getElementById("container");
 var timeblocks = [
   {
+    id: 0,
+    time: "8AM",
+  },
+  {
     id: 1,
     time: "9AM",
   },
@@ -83,8 +87,22 @@ const timeblock = () => {
     hours.setAttribute("class", "col-2 col-md-1 hour text-center py-3");
     hours.textContent = timeblocks[i].time;
 
+    const textContainer = document.createElement("textarea");
+    textContainer.setAttribute("class", "col-8 col-md-10 textarea-element");
+    textContainer.setAttribute("rows", "3");
+
+    const saveButton = document.createElement("button");
+    saveButton.setAttribute("class", "btn save-btn col-2 col-md-1");
+    saveButton.setAttribute("aria-label", "save");
+    const saveLogo = document.createElement("i");
+    saveLogo.setAttribute("class", "fas fa-save");
+    saveLogo.setAttribute("aria-hidden", "true");
+
     timeContainer.appendChild(hours);
     document.body.appendChild(timeContainer);
+    timeContainer.appendChild(textContainer);
+    timeContainer.appendChild(saveButton);
+    saveButton.appendChild(saveLogo);
   }
 };
 timeblock();
