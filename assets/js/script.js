@@ -82,21 +82,27 @@ const timeblock = () => {
   for (let i = 0; i < timeblocks.length; i++) {
     const timeContainer = document.createElement("div");
     timeContainer.setAttribute("class", "row time-block");
+    timeContainer.setAttribute("id", "timeContainer");
 
     const hours = document.createElement("div");
     hours.setAttribute("class", "col-2 col-md-1 hour text-center py-3");
+    hours.setAttribute("id", "hours");
     hours.textContent = timeblocks[i].time;
 
     const textContainer = document.createElement("textarea");
     textContainer.setAttribute("class", "col-8 col-md-10 textarea-element");
     textContainer.setAttribute("rows", "3");
+    textContainer.setAttribute("id", "textContainer");
 
     const saveButton = document.createElement("button");
     saveButton.setAttribute("class", "btn save-btn col-2 col-md-1");
     saveButton.setAttribute("aria-label", "save");
+    saveButton.setAttribute("id", "saveButton");
+
     const saveLogo = document.createElement("i");
     saveLogo.setAttribute("class", "fas fa-save");
     saveLogo.setAttribute("aria-hidden", "true");
+    saveLogo.setAttribute("id", "saveLogo");
 
     timeContainer.appendChild(hours);
     document.body.appendChild(timeContainer);
