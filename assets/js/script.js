@@ -22,48 +22,87 @@
 
 */
 //Variables
-var timeblockEl = document.getElementById ('timeblock');
+var timeblockEl = document.getElementById("timeblock");
 var currentHour = dayjs().hour();
-var timeblockHour;  //something to indicate the selected timeblock 
-var timeChange = document.getElementsByClassName ('column-2');
-var containerEl = document.getElementById ('container');
-var timeblocks = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
-var currentDayEl = document.getElementById ('currentDay');
+var timeblockHour; //something to indicate the selected timeblock
+var timeChange = document.getElementsByClassName("column-2");
+var containerEl = document.getElementById("container");
+var timeblocks = [
+  {
+    id: 1,
+    time: "9AM",
+  },
+  {
+    id: 2,
+    time: "10AM",
+  },
+  {
+    id: 3,
+    time: "11AM",
+  },
+  {
+    id: 4,
+    time: "12PM",
+  },
+  {
+    id: 5,
+    time: "1PM",
+  },
+  {
+    id: 6,
+    time: "2PM",
+  },
+  {
+    id: 7,
+    time: "3PM",
+  },
+  {
+    id: 8,
+    time: "4PM",
+  },
+  {
+    id: 9,
+    time: "5PM",
+  },
+];
+var currentDayEl = document.getElementById("currentDay");
 var currentDateTime = new Date();
-// var pastEl = ;
-// var presentEl =;
-// var futureEl =;
 
-// Display today's date 
+// Display today's date
 console.log(currentDayEl);
-console.log (currentDateTime);
+console.log(currentDateTime);
 currentDayEl.textContent = currentDateTime;
 
-//Creating schedule timetable with a for loop 
-// for (var i=0; i< timeblocks.length; i++){
-//   var columns = document.createElement ('div');
-//   columns.textContent = timeblocks[i] + ":00";
-//   containerEl.appendChild(columns);
+//creating each timeblock
+const timeblock = () => {
+  for (let i = 0; i < timeblocks.length; i++) {
+    const timeContainer = document.createElement("div");
+    timeContainer.setAttribute("class", "row time-block");
+
+    const hours = document.createElement("div");
+    hours.setAttribute("class", "col-2 col-md-1 hour text-center py-3");
+    hours.textContent = timeblocks[i].time;
+
+    timeContainer.appendChild(hours);
+    document.body.appendChild(timeContainer);
+  }
+};
+timeblock();
+
+// // Function for current, past and future times to change color
+// function changeColor() {
+//   if (currentHour < timeblockHour) {
+//     timeblockEl.classList.add("future"); //future hours
+//   } else if (currentHour === timeblockHour) {
+//     timeblockEl.classList.add("present"); //current hour
+//   } else {
+//     timeblockEl.classList.add("past"); //past hour
+//   }
 // }
 
+// // Function for saving content when saveBtn is clicked
+// var clickBtnEl = document.getElementsByClassName("savebtn");
 
-// Function for current, past and future times to change color
-function changeColor (){
-  if (currentHour<timeblockHour){
-    timeblockEl.classList.add ('future') //future hours
-  } else if (currentHour === timeblockHour) {    
-    timeblockEl.classList.add ('present'); //current hour
-  } else {
-    timeblockEl.classList.add ('past'); //past hour 
-  }
-}
+// clickBtnEl.addEventListener("click", clickBtn);
 
-
-// Function for saving content when saveBtn is clicked 
-var clickBtnEl = document.getElementsByClassName ('savebtn');
-
-clickBtnEl.addEventListener ('click', clickBtn);
-
-function clickBtn(){
-  
-}
+// function clickBtn() {}
